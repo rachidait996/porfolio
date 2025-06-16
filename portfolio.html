@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachid Ait Lmaati - Software Engineer</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #0ea5e9;
+            --text-color: #333;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .icon {
+            font-size: 1.2rem;
+        }
+        
+        main {
+            background-color: var(--white);
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        .profile-section p {
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .timeline-item {
+            padding: 1rem 0 1rem 2rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            left: -6.5px;
+            top: 24px;
+            z-index: 1;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content {
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-grid, .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skills-category {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .activities-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style-type: none;
+        }
+        
+        .activities-list li {
+            padding: 1rem;
+            background-color: var(--light-gray);
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-text {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-info {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .project-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-info">
+                <div class="profile-pic">
+                   <img src="profile.jpg" alt="Rachid Ait Lmaati" style="width: 100%; height: 100%; border-radius: 50%;">
+                      
+                </div>
+                <h1>Rachid Ait Lmaati</h1>
+                <p class="tagline">Software Engineering Student | Web Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <span>Casablanca, Morocco</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope icon"></i>
+                        <span>rachidaitlmaati275@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone icon"></i>
+                        <span>+212 616 739338</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github icon"></i>
+                        <span>github.com/rachidait996</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="profile-section">
+                <h2>About Me</h2>
+                <p>
+                    Motivated and adaptable software engineering student in my second year at ENSIAS, seeking 
+                    internship opportunities to gain practical experience and contribute effectively to software 
+                    projects. Eager to learn and expand my technical skills with strong problem-solving abilities 
+                    and capacity to work well in teams. My passion lies in web development and software engineering, 
+                    where I've already built several comprehensive web applications.
+                </p>
+            </section>
+            
+            <section class="education-section">
+                <h2>Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 – 2026 (Current)</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Software Engineering</div>
+                            <p>ENSIAS, Rabat, Morocco</p>
+                            <p>Currently in 2nd year of Software Engineering program</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 – 2023</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Preparatory Classes (MPSI-MP)</div>
+                            <p>Lycée Mohammed V, Casablanca, Morocco</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="experience-section">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2024 – August 2024 (2 months)</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Local Internship - ENSIAS Academic Affairs (EnsiasConnect)</div>
+                            <ul>
+                                <li>Developed a web-based timetable management system for ENSIAS with distinct user roles (Administrator, Program Coordinator, Professor, Student), enabling efficient creation, update, resource management, and communication between stakeholders.</li>
+                                <li>Collaborated with academic staff to optimize planning processes.</li>
+                                <li>Technologies: Laravel, MySQL, Bootstrap.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="projects-section">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Internship Management Platform (WebIntern)</h3>
+                        <p class="timeline-date">December 2024</p>
+                        <p>
+                            Developed a web application to connect students with companies for internships, enabling applications, 
+                            interview scheduling, and supervision by school administrators and coordinators.
+                        </p>
+                        <p>Implemented authentication, internship listings, applications, and role management.</p>
+                        <p><strong>Technologies:</strong> Spring Boot, React, Oracle Database</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Parking Management System (EasyPark)</h3>
+                        <p class="timeline-date">May 2023</p>
+                        <p>
+                            Developed a multi-user web application using Oracle APEX for efficient parking management. 
+                            The system allows administrators to oversee operations, workers to manage parking spaces, 
+                            and users to reserve spaces and check availability, ensuring a smooth and organized experience.
+                        </p>
+                        <p><strong>Technologies:</strong> Oracle Apex</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="skills-section">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skills-category">
+                        <h3>Languages</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Arabic (Native)</span>
+                            <span class="skill-tag">French (Fluent)</span>
+                            <span class="skill-tag">English (Fluent)</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Programming</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">PL/SQL</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Web Development</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">jQuery</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">React</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Frameworks</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">Oracle Apex</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Databases</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Oracle Database</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="activities-section">
+                <h2>Extracurricular Activities</h2>
+                <ul class="activities-list">
+                    <li>
+                        <strong>ENSIAS House of Arts Club</strong> – President
+                    </li>
+                    <li>
+                        <strong>ENSIAS IEEE Club</strong> – Member of the Competitive Programming Cell
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p class="footer-text">Feel free to contact me for any opportunities or collaborations!</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="footer-text">© 2025 Rachid Ait Lmaati</p>
+        </div>
+    </footer>
+</body>
+</html>
